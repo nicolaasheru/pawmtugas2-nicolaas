@@ -385,9 +385,15 @@ body[data-theme="dark"] .quiz-container h2, p {
 body[data-theme="dark"] .level-container p {
     color: var(--text-light);
 }
+
+body[data-theme="dark"] #quiz-word {
+    color: var(--text-light);
+}
+
 body[data-theme="dark"] .quiz-container {
     background-color: var(--text-light);
 }
+
 body[data-theme="dark"] .footer {
     background-color: var(--footer-bg);
 }
