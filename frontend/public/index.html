@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fliplingo by Nico - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Light mode variables */
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent-color: #60a5fa;
+            --text-light: #ffffff;
+            --text-dark: #1e293b;
+            --background-light: #f8fafc;
+            --footer-bg: #1e293b;
+            --transition-speed: 0.3s;
+        }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --primary-color: #12284d;
+            --primary-dark: #07132c;
+            --accent-color: #a0bcde;
+            --text-light: #ffffff;
+            --text-dark: #e2e8f0;
+            --background-light: #0f172a;
+            --footer-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        header {
+            background: var(--primary-color);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: -0.025em;
+        }
+
+        .theme-button {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+        }
+
+        .theme-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-section {
+            min-height: calc(100vh - 180px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            position: relative;
+            overflow: hidden;
+            transition: background var(--transition-speed);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--text-light);
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            animation: fadeIn 1s ease-out 0.5s both;
+            opacity: 0.9;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .btn {
+            background: var(--text-light);
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-cards {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-card {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: float 8s infinite;
+        }
+
+        .footer {
+            background: var(--footer-bg);
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            transition: background-color var(--transition-speed);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            font-weight: 300;
+        }
+
+        .footer-section ul a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: all var(--transition-speed);
+            opacity: 0.8;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(15px, -20px) rotate(5deg) scale(1.05); }
+            50% { transform: translate(-10px, 15px) rotate(-3deg) scale(0.95); }
+            75% { transform: translate(-20px, -10px) rotate(8deg) scale(1.02); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-description {
+                font-size: 1.25rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Fliplingo by Nico</h1>
+      <button id="theme-toggle" class="theme-button">🌙 Dark Mode</button>
+    </header>
+
+    <section class="hero-section">
+      <div class="floating-cards"></div>
+
+      <div class="hero-content">
+        <h2 class="hero-title">Master Languages Effortlessly</h2>
+        <p class="hero-description">Learn vocabulary through interactive flashcards and engaging quizzes. Start your language journey today.</p>
+
+        <div class="button-container">
+          <a href="signup.html" class="btn">Sign Up</a>
+          <a href="login.html" class="btn">Login</a>
+          <a href="flipcards.html" class="btn">Start Learning</a>
+          <a href="quiz.html" class="btn">Take a Quiz</a>
+        </div>
+      </div>
+    </section>      
+
+    <section class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>Fliplingo is a platform designed to enhance language learning with personalized tools, tips, and engaging activities.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul>
+            <li>Email: info@fliplingo.com</li>
+            <li>Phone: +123 456 7890</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+
+              // Create floating cards
+        function createFloatingCards() {
+            const floatingCardsContainer = document.querySelector('.floating-cards');
+            const numberOfCards = 12;
+            
+            for (let i = 0; i < numberOfCards; i++) {
+                const card = document.createElement('div');
+                card.className = 'floating-card';
+                card.style.left = `${Math.random() * 100}%`;
+                card.style.top = `${Math.random() * 100}%`;
+                card.style.animationDelay = `${Math.random() * 5}s`;
+                floatingCardsContainer.appendChild(card);
+            }
+        }
+
+        function getCookies() {
+        return document.cookie
+          .split('; ')
+          .reduce((acc, cookie) => {
+            const [key, value] = cookie.split('=');
+            acc[key] = decodeURIComponent(value);
+            return acc;
+          }, {});
+      }
+    
+      // Check for token or userId in cookies
+      const cookies = getCookies();
+      const hasAuth = cookies.token || cookies.userId;
+    
+      // Elements to manage visibility
+      const signupButton = document.querySelector('a[href="signup.html"]');
+      const loginButton = document.querySelector('a[href="login.html"]');
+      const buttonContainer = document.querySelector('.button-container');
+    
+      if (hasAuth) {
+        // Hide signup and login buttons
+        if (signupButton) signupButton.style.display = 'none';
+        if (loginButton) loginButton.style.display = 'none';
+    
+        // Create and add a logout button
+        const logoutButton = document.createElement('a');
+        logoutButton.textContent = 'Logout';
+        logoutButton.className = 'btn';
+        logoutButton.href = '#';
+        logoutButton.addEventListener('click', () => {
+          // Clear cookies and refresh the page
+          document.cookie = 'token=; Max-Age=0; path=/; SameSite=Strict';
+          document.cookie = 'userId=; Max-Age=0; path=/; SameSite=Strict';
+          alert('You have been logged out.');
+          location.reload();
+        });
+    
+        buttonContainer.appendChild(logoutButton);
+      }
+
+      const themeButton = document.getElementById('theme-toggle');
+      const body = document.body;
+
+      themeButton.addEventListener('click', () => {
+        if (body.hasAttribute('data-theme')) {
+          body.removeAttribute('data-theme');
+          themeButton.textContent = '🌙 Dark Mode';
+        } else {
+          body.setAttribute('data-theme', 'dark');
+          themeButton.textContent = '🌞 Light Mode';
+        }
+      });
+
+      createFloatingCards();
+    </script>
+    
+  </body>
+</html>
+
+    

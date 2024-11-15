@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Fliplingo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+      /* Menggunakan gaya yang konsisten dengan halaman login */
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --accent-color: #60a5fa;
+        --text-light: #ffffff;
+        --text-dark: #1e293b;
+        --background-light: #f8fafc;
+        --footer-bg: #1e293b;
+        --transition-speed: 0.3s;
+      }
+      body {
+        background-color: var(--background-light);
+        color: var(--text-dark);
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        line-height: 1.6;
+        transition: background-color var(--transition-speed), color var(--transition-speed);
+        box-sizing: border-box;
+      }
+
+      .signup-container, .input-group, .input-group input, .btn {
+        box-sizing: border-box;
+        }
+
+      .signup-container {
+        background: white;
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 4rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .input-group {
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+      }
+
+      .input-group input {
+        max-width: 100%;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-top: 0.5rem;
+        outline: none;
+        transition: border-color 0.3s;
+        /* display: flex;
+        flex-direction: column; */
+      }
+
+      .input-group input:focus {
+        border-color: var(--primary-color);
+      }
+
+      .btn {
+        background: var(--primary-color);
+        color: var(--text-light);
+        padding: 1rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.125rem;
+        transition: all var(--transition-speed);
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      }
+
+      .signup-input{
+        max-width: 100%;
+      }
+
+      .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+  padding: 1rem;
+  background: var(--footer-bg);
+  color: var(--text-light);
+  box-sizing: border-box;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="signup-container">
+      <h2>Create Account</h2>
+
+      <form id="signupForm">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input class="signup-input" type="text" id="name" name="name" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required />
+        </div>
+
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
+    <div class="footer">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+    <script src="./signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fliplingo by Nico - Flipcards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --primary-dark: #eff4ff;
+            --accent-color: #60a5fa;
+            --text-light: #163872;
+            --text-dark: #1e293b;
+            --background-light: #f8fafc;
+            --footer-bg: #1e293b;
+            --transition-speed: 0.3s;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #12284d;
+            --primary-dark: #07132c;
+            --accent-color: #a0bcde;
+            --text-light: #ffffff;
+            --text-dark: #e2e8f0;
+            --background-light: #0f172a;
+            --footer-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        header {
+            background: var(--primary-color);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: -0.025em;
+        }
+
+        .theme-button {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+        }
+
+        .theme-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-home {
+            background: var(--text-light);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .flipcard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .flipcard {
+            perspective: 1000px;
+        }
+
+        .flipcard-inner {
+            position: relative;
+            width: 100%;
+            padding-top: 150%; /* Maintain aspect ratio */
+            transform-style: preserve-3d;
+            transition: transform var(--transition-speed);
+        }
+
+        .flipcard:hover .flipcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flipcard-front, .flipcard-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .flipcard-back {
+            transform: rotateY(180deg);
+            background: var(--primary-dark);
+        }
+
+        footer {
+            background: var(--footer-bg);
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            text-align: center;
+            transition: background-color var(--transition-speed);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fliplingo by Nico</h1>
+        <button id="theme-toggle" class="theme-button">🌙 Dark Mode</button>
+        <a href="./index.html" class="btn-home">Home</a>
+    </header>
+
+    <div class="container">
+        <div class="flipcard-container">
+            <!-- Total 25 flipcards -->
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Apple</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Apel</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Dog</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Anjing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Book</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Buku</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Cat</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Kucing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>House</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Rumah</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Car</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Water</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Air</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Phone</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Telepon</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Tree</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Pohon</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Sky</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Langit</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Flower</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Bunga</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Sun</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Matahari</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Chair</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Kursi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Pen</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Pena</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Computer</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Komputer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Road</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Jalan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Music</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Musik</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Window</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Jendela</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Mirror</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Cermin</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Key</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Kunci</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Bird</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Burung</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Fish</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Ikan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Shirt</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Kemeja</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flipcard">
+                <div class="flipcard-inner">
+                    <div class="flipcard-front">
+                        <p>Shoes</p>
+                    </div>
+                    <div class="flipcard-back">
+                        <p>Sepatu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Fliplingo by Nico. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            themeToggle.innerHTML = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
+        });
+    </script>
+</body>
+</html>

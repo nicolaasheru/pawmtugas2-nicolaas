@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fliplingo by Nico - Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="./index.html">Fliplingo Quiz</a></h1>
+        <div class="header-layout">
+            <button id="theme-toggle" class="theme-button">🌙 Dark Mode</button>
+            <!-- <a href="./index.html" class="btn-home">Home</a> -->
+        </div>
+    </header>
+
+    <div class="level-container">
+        <p>Level: <span id="level">1</span></p>
+        <div class="level-bar">
+            <div class="level-bar-progress">
+                <span class="level-text"></span>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="quiz-container">
+        <h2>Quiz Time!</h2>
+        <p>Guess the translation of the word on the flipcard:</p>
+
+        <div id="quiz-card" class="flipcard">
+            <div class="flipcard-inner">
+                <div class="flipcard-front">
+                    <p id="quiz-word">Apple</p>
+                </div>
+                <div class="flipcard-back">
+                    <p id="quiz-answer">Apel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-btn-wrapper">
+            <div>
+                <input type="text" id="user-answer" placeholder="Type your answer here">
+                <button id="submit-answer" class="btn">Submit</button>
+            </div>
+            <div>
+                <p id="result-message"></p>
+                <button id="next-question" class="btn">Next Question</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Fliplingo is a modern language learning platform that makes vocabulary acquisition engaging and effective through interactive flashcards and personalized quizzes.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./flipcards.html">Flashcards</a></li>
+                    <li><a href="./quiz.html">Quiz</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: hello@fliplingo.com</p>
+                <p>Phone: +1 234 567 890</p>
+                <p>Location: Jakarta, Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./quiz.js"></script>
+    <script>
+        const themeButton = document.getElementById('theme-toggle');
+        const body = document.body;
+  
+        themeButton.addEventListener('click', () => {
+          if (body.hasAttribute('data-theme')) {
+            body.removeAttribute('data-theme');
+            themeButton.textContent = '🌙 Dark Mode';
+          } else {
+            body.setAttribute('data-theme', 'dark');
+            themeButton.textContent = '🌞 Light Mode';
+          }
+        });
+      </script>
+</body>
+</html>

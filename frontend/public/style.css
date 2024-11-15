@@ -1,0 +1,463 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --accent-color: #60a5fa;
+    --text-light: #ffffff;
+    --text-dark: #1e293b;
+    --background-light: #f8fafc;
+    --footer-bg: #1e293b;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    --primary-color: #12284d;
+    --primary-dark: #07132c;
+    --accent-color: #a0bcde;
+    --text-light: #ffffff;
+    --text-dark: #0c2647;
+    --background-light: #0f172a;
+    --footer-bg: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    margin: 0;
+}
+
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Put clouds behind the content */
+    pointer-events: none; /* Prevent the clouds from interfering with user interaction */
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: cloudMovement 30s linear infinite;
+    z-index: -1;
+}
+
+.cloud:nth-child(odd) {
+    animation-duration: 35s; /* Some clouds move faster */
+}
+
+@keyframes cloudMovement {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Customize cloud sizes and positions */
+.cloud1 {
+    width: 200px;
+    height: 120px;
+    top: 10%;
+    left: 10%;
+}
+
+.cloud2 {
+    width: 150px;
+    height: 100px;
+    top: 25%;
+    left: 50%;
+}
+
+.cloud3 {
+    width: 250px;
+    height: 150px;
+    top: 60%;
+    left: 30%;
+}
+
+.cloud4 {
+    width: 180px;
+    height: 110px;
+    top: 50%;
+    left: 80%;
+}
+
+
+body.dark {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+h1, h2 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 10px;
+    /* margin: 10px 0; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+/* Login Container */
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.theme-button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+.theme-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Header */
+header {
+    background: var(--primary-color);
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.header-layout {
+    display: flex;
+    flex-direction: row ;
+    gap: 8px;
+}
+
+header .btn-home {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    text-decoration: none;
+}
+
+header .btn-home:hover {
+    background-color: var(--primary-color);
+}
+
+/* Quiz Container */
+.quiz-container {
+    background-color: var(--text-light);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 40px auto;
+    text-align: center;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.quiz-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    width: 100%;
+    margin: 20px 0;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--text-light);
+    color: var(--primary-color);
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: all var(--transition-speed);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* Flipcard */
+.flipcard {
+    background-color: transparent;
+    width: 100%;
+    height: 200px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.flipcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flipcard-front, .flipcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+.flipcard-front {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.flipcard-back {
+    background-color: var(--footer-bg);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flipcard.is-flipped .flipcard-inner {
+    transform: rotateY(180deg);
+}
+
+/* Footer */
+footer {
+    background: var(--footer-bg);
+    color: var(--text-light);
+    padding: 5rem 2rem;
+    transition: background-color var(--transition-speed);
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 4rem;
+}
+
+.footer-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section ul a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+    font-weight: 300;
+}
+
+.footer-section ul a:hover {
+    color: var(--accent-color);
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit; /* This keeps the link color the same as the parent h1 */
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    transition: all var(--transition-speed);
+    opacity: 0.8;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Dark Mode Styles */
+body[data-theme="dark"] {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+body[data-theme="dark"] .quiz-container {
+    background-color: var(--primary-dark);
+}
+
+body[data-theme="dark"] .quiz-container h2, p {
+    color: var(--text-dark);
+}
+
+body[data-theme="dark"] .level-container p {
+    color: var(--text-light);
+}
+body[data-theme="dark"] .quiz-container {
+    background-color: var(--text-light);
+}
+body[data-theme="dark"] .footer {
+    background-color: var(--footer-bg);
+}
+
+/* Video Container */
+.video-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 8px;
+    max-width: 560px;
+    border: none;
+}
+
+.level-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.level-bar {
+    width: 100%;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    margin-top: 5px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.level-bar-progress {
+    height: 100%;
+    width: 0;
+    background-color: #4caf50; /* Warna progres awal */
+    border-radius: 20px;
+    transition: width 0.5s ease-in-out; /* Efek animasi */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.level-text {
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.level-bar-progress.low {
+    background-color: #f44336; /* Merah saat progres rendah */
+}
+
+.level-bar-progress.medium {
+    background-color: #ff9800; /* Oranye untuk progres sedang */
+}
+
+.level-bar-progress.high {
+    background-color: #4caf50; /* Hijau saat progres tinggi */
+}
+
+
