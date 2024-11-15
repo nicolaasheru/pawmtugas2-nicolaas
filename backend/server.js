@@ -43,11 +43,6 @@ const authenticate = (req, res, next) => {
   }
 };
 
-
-app.get("/", async(req,res) => {
-  return res.status(201).json({ message: "User registered successfully" });
-});
-
 // Endpoint untuk Register (mendaftar user baru)
 app.post("/register", async (req, res) => {
   const {name, email, password } = req.body;
