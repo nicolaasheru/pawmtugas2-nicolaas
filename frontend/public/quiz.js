@@ -18,7 +18,7 @@ const questions = [
 ];
 
 // Global variables
-API_BASE_URL = "https://github.com/nicolaasheru/pawm2-nicolaas/tree/e498a2cdbf04efd40856ee53ff8586abc1900260/backend";
+API_BASE_URL = "https://pawmtugas2-nicolaas-backend.vercel.app/";
 let currentLevel = 0;
 let currentQuestionIndex = 0;
 let questionsForLevel = [];
