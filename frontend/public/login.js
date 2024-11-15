@@ -1,4 +1,4 @@
-API_BASE_URL = "https://pawmtugas2-nicolaas-backend.vercel.app/";
+API_BASE_URL = "https://pawmtugas2-nicolaas-backend.vercel.app";
 document.getElementById("loginForm").addEventListener("submit", async (event) => {
   event.preventDefault();
 
