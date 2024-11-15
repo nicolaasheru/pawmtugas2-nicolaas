@@ -1,4 +1,4 @@
-API_BASE_URL = "https://github.com/nicolaasheru/pawm2-nicolaas/tree/e498a2cdbf04efd40856ee53ff8586abc1900260/backend";
+API_BASE_URL = "https://pawmtugas2-nicolaas-backend.vercel.app/";
 document.getElementById("loginForm").addEventListener("submit", async (event) => {
   event.preventDefault();
 
