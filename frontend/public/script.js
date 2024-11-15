@@ -15,7 +15,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     const password = document.getElementById('password').value;
   
     // Mengirim data login ke server menggunakan POST request
-    fetch('https://github.com/nicolaasheru/pawm2-nicolaas/tree/e498a2cdbf04efd40856ee53ff8586abc1900260/backend/login', {
+    fetch('https://pawmtugas2-nicolaas-backend.vercel.app/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
